@@ -1,9 +1,8 @@
-import Preview from "./pages/Preview";
-
+import Profile from "./pages/Profile";
 function App() {
   return (
     <>
-      <Preview/>
+      <Profile/>
     </>
   );
 }

@@ -48,7 +48,7 @@ const MobileView = () => {
         </div>
         <div id="saveButton" className=" w-[98%] flex flex-row-reverse">
         <button className='float-right p-2 mb-3 border-2 rounded-md border-purply text-purply w-24 hover:bg-purply hover:text-white font-semibold'
-        onClick={handleSave}>Save</button>
+       >Save</button>
         </div>
     </>
   )

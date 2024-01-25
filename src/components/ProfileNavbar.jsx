@@ -4,7 +4,7 @@ import logo from "../assets/logo.png"
 const ProfileNavbar = () => {
   return (
     <>
-            <div id="navWrapper" className='h-20 w-auto p-2 m-3 border-2 shadow-lg rounded-xl bg-white flex flex-row justify-center items-center text-gray-700'>
+            <div id="navWrapper" className='h-20 w-auto p-2 m-3 border-2  rounded-xl bg-white flex flex-row justify-center items-center text-gray-700'>
                 <div id="logo" className='basis-2/6 flex flex-row items-center gap-2 pl-2 cursor-pointer'>
                     <img src={logo} alt="logo" className='h-8 w-8'/>
                     <h2 className='text-xl font-semibold'>Devlinks</h2>
@@ -27,8 +27,8 @@ const ProfileNavbar = () => {
                     </ul>
                 </div>
                 <div id="preview" className='basis-2/6 pr-2'>
-                    <button className='float-right p-2 border-2 rounded-md border-purply text-base text-purply w-36
-                     hover:bg-purply hover:text-white'>Preview</button>
+                    <button className='float-right p-2 border-2 rounded-md border-purply text-purply w-36
+                     hover:bg-purply hover:text-white font-semibold'>Preview</button>
                 </div>
             </div>
        

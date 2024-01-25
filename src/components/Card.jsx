@@ -5,7 +5,7 @@ const Card = () => {
   return (
     <>
         <div id="cardContainer" className='h-[92%] w-full flex justify-center items-center mt-10'>
-            <div id="cardWrapper" className='border-2 p-10 m-10 rounded-2xl bg-white'>
+            <div id="cardWrapper" className='border-2 border-gray-300 p-10 m-10 rounded-2xl bg-white '>
                 <div id="imageContainer" className='w-full flex justify-center'>
                     <img src={avatar} alt="avatar" className='h-24 w-24 rounded-full border-4 border-purply'/>
                 </div>
@@ -49,6 +49,7 @@ const Card = () => {
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>   
                         </svg>
                     </button>
+                
 
                 </div>
             </div>

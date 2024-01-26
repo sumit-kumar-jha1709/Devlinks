@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { ImageOutlined } from '@mui/icons-material';
 import toast from 'react-hot-toast';
 
-const ProfileForm = () => {
+const ProfileForm = ({setFormData}) => {
   const [imagePreview, setImagePreview] = useState(null);
   const formikRef = useRef();
 
@@ -35,16 +35,25 @@ const ProfileForm = () => {
         return errors;
       }}
       onSubmit={(values) => {
-        // Handle form submission logic here
-        console.log(values);
+          // Set the form data in the parent component state
+          setFormData({
+            profilePhoto: imagePreview || '',  // Set the image preview URL or an empty string if no image
+            firstName: values.firstName,
+            lastName: values.lastName,
+            email: values.email,
+          });
 
-        // Simulate email validation with a toast notification
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-          toast.error('Invalid email address');
-        } else {
-          // Display success toast
-          toast.success('Profile details saved successfully!');
-        }
+          // Handle form submission logic here
+          console.log(values);
+
+ 
+         // Simulate email validation with a toast notification
+         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+           toast.error('Invalid email address');
+         } else {
+           // Display success toast
+           toast.success('Profile details saved successfully!');
+         }
       }}
     >
       <Form>
@@ -134,6 +143,13 @@ const ProfileForm = () => {
           />
           </div>
           <ErrorMessage name="email" component="div" className="text-red-500" />
+        </div>
+
+        <div className="text-center absolute bottom-[-5] right-14 mt-2">
+          <button
+            type="submit"
+            className='p-2 border-2 rounded-md border-purply text-purply w-24 hover:bg-purply hover:text-white font-semibold'
+          >Save</button>
         </div>
         
       </Form>

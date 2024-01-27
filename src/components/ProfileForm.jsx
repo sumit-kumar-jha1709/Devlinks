@@ -2,8 +2,11 @@ import React, { useRef, useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { ImageOutlined } from '@mui/icons-material';
 import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { updateUserData } from '../redux/store';
 
-const ProfileForm = ({setFormData}) => {
+const ProfileForm = () => {
+  const dispatch = useDispatch();
   const [imagePreview, setImagePreview] = useState(null);
   const formikRef = useRef();
 
@@ -36,12 +39,12 @@ const ProfileForm = ({setFormData}) => {
       }}
       onSubmit={(values) => {
           // Set the form data in the parent component state
-          setFormData({
-            profilePhoto: imagePreview || '',  // Set the image preview URL or an empty string if no image
+          dispatch(updateUserData({
+            profilePhoto: imagePreview || '',
             firstName: values.firstName,
             lastName: values.lastName,
             email: values.email,
-          });
+          }));
 
           // Handle form submission logic here
           console.log(values);
@@ -111,19 +114,20 @@ const ProfileForm = ({setFormData}) => {
                     {/* User information input block starts here: */}
 
 
-        <div id="userInformation" className='bg-[#F0F0F0] flex flex-col p-5 gap-3 mx-4 mt-7 mb-2 rounded-xl'>
+        <div id="userInformation" className='bg-[#F0F0F0] flex flex-col p-5 gap-3 mx-4 mt-7 mb-2 rounded-xl '>
           <div className='flex flex-row items-center justify-center'>
             <label htmlFor="firstName" className='basis-[40%] text-gray-600'>First Name</label>
+            <ErrorMessage name="firstName" component="div" className="text-red-500  " />
             <Field
                 type="text"
                 id="firstName"
                 name="firstName"
                 className="p-2 border border-gray-400 focus:shadow-sm focus:shadow-purply focus:border-purply focus:outline-none rounded-lg basis-[60%]"
-            />
+                />
           </div>
-          <ErrorMessage name="firstName" component="div" className="text-red-500" />
           <div className='flex flex-row items-center justify-center'>
           <label htmlFor="lastName" className='basis-[40%] text-gray-600'>Last Name</label>
+          <ErrorMessage name="lastName" component="div" className="text-red-500" />
           <Field
             type="text"
             id="lastName"
@@ -131,10 +135,10 @@ const ProfileForm = ({setFormData}) => {
             className="p-2 border border-gray-400 focus:shadow-sm focus:shadow-purply focus:border-purply focus:outline-none rounded-lg basis-[60%]"
           />
           </div>
-          <ErrorMessage name="lastName" component="div" className="text-red-500" />
 
           <div className='flex flex-row items-center justify-center'>
           <label htmlFor="email" className='basis-[40%] text-gray-600'>Email</label>
+          <ErrorMessage name="email" component="div" className="text-red-500" />
           <Field
             type="email"
             id="email"
@@ -142,13 +146,12 @@ const ProfileForm = ({setFormData}) => {
             className="p-2 border border-gray-400 focus:shadow-sm focus:shadow-purply focus:border-purply focus:outline-none rounded-lg basis-[60%]"
           />
           </div>
-          <ErrorMessage name="email" component="div" className="text-red-500" />
         </div>
 
-        <div className="text-center absolute bottom-[-5] right-14 mt-2">
+        <div className="text-center absolute bottom-[-5] right-14 mt-3 ">
           <button
             type="submit"
-            className='p-2 border-2 rounded-md border-purply text-purply w-24 hover:bg-purply hover:text-white font-semibold'
+            className='p-2 border-2 rounded-md hover:border-purply hover:text-purply hover:bg-white w-24 bg-purply text-white font-semibold'
           >Save</button>
         </div>
         

@@ -1,19 +1,29 @@
-import React, { useState } from 'react'
-import avatar from "../assets/person.jpg"
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Card = () => {
+    const userData = useSelector((state)=>state.userData);
   return (
     <>
         <div id="cardContainer" className='h-[92%] w-full flex justify-center items-center mt-10'>
             <div id="cardWrapper" className='border-2 border-gray-300 p-10 m-10 rounded-2xl bg-white '>
-                <div id="imageContainer" className='w-full flex justify-center'>
-                    <img src={avatar} alt="avatar" className='h-24 w-24 rounded-full border-4 border-purply'/>
+            {userData.profilePhoto || userData.firstName || userData.lastName || userData.email ? (
+                <>
+                    <div id="imageContainer" className='w-full flex justify-center'>
+                    <img src={userData.profilePhoto} alt="avatar" className='h-24 w-24 rounded-full border-4 border-purply'/>
+                    </div>
+                    <div id="nameContainer" className='pt-5 flex flex-col items-center'>
+                    <h2 className='text-3xl font-bold text-gray-700'>{userData.firstName} {userData.lastName}</h2>
+                    <p className='text-sm text-gray-500'>{userData.email}</p>
+                    </div>
+                </>
+                ) : (
+                <div className="text-center">
+                    <p>Please go back to the editor and fill in the details.</p>
                 </div>
-                <div id="nameContainer" className='pt-5 flex flex-col items-center'>
-                    <h2 className=' text-3xl font-bold text-gray-700'>Ben Wright</h2>
-                    <p className='text-sm text-gray-500'>ben@example.com</p>
-                </div>
-                <div id="socialLinks" className='pt-10 flex flex-col'>
+                )}
+
+                {/* <div id="socialLinks" className='pt-10 flex flex-col'>
                     <button type="button" class="text-white bg-[#24292F] hover:bg-[#333942] font-medium rounded-lg text-sm h-12 w-52 px-5 py-2.5 text-center inline-flex justify-between items-center me-2 mb-5 pb-2">
                         <div class="flex items-center">
                             <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -51,7 +61,7 @@ const Card = () => {
                     </button>
                 
 
-                </div>
+                </div> */}
             </div>
         </div>
     </>

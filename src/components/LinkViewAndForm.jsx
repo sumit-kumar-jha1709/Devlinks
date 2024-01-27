@@ -1,11 +1,11 @@
 import React from 'react'
 import phoneOutline from "../assets/phoneOutline.png"
-import ProfileForm from './ProfileForm'
 import  { Toaster } from 'react-hot-toast'
 import { useSelector } from 'react-redux'
+import LinkForm from './LinkForm'
 
 
-const MobileView = () => {
+const LinkViewAndForm = () => {
   const userData = useSelector((state)=>state.userData);
   
   
@@ -31,11 +31,11 @@ const MobileView = () => {
           </div>
           <div id="profileDetailsWrapper" className='basis-3/5 border-2 h-full rounded-xl bg-white m-2 '>
             <div id="headingDetails" className='h-30 w-full pt-5 pl-5 pb-2 flex flex-col gap-3'>
-              <h1 className='font-bold text-3xl text-gray-800'> Profile Details </h1>
-              <p className=' text-base text-gray-600'>Add your details to create a personal touch to your profile.</p>
+              <h1 className='font-bold text-3xl text-gray-800'> Customize your links </h1>
+              <p className=' text-base text-gray-600'>Add/edit/remove links below and then share all your profiles with the world!</p>
             </div>
             <div id="form ">
-              <ProfileForm />
+              <LinkForm />
             </div>
           </div>
         </div>
@@ -44,4 +44,4 @@ const MobileView = () => {
   )
 }
 
-export default MobileView
+export default LinkViewAndForm

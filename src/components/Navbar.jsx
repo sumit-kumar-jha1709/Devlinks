@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -7,8 +8,7 @@ const Navbar = () => {
           <button id="backToEditorButton" 
           className='p-3 border-2 rounded-md border-purply text-base text-purply w-40
             hover:bg-purply hover:text-white
-          '
-          >Back to Editor
+          '><Link to="/"> Back to Editor </Link>
           </button>
           <button id="shareLinkButton"
           className='ml-2 p-3 border-2 rounded-md text-base bg-purply w-40 text-white

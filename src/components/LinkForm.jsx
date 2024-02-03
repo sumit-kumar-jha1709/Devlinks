@@ -1,9 +1,15 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import toast from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateLinkData } from '../redux/store';
 
-const LinkForm = ({ onLinkSave }) => {
-  const handleSubmit = (values, { resetForm, setSubmitting }) => {
+const LinkForm = () => {
+
+  const dispatch = useDispatch();
+  const linkData = useSelector((state) => state.linkData);
+
+  const handleSubmit = (values, { setSubmitting }) => {
     // Simple validation
     if (!values.platform || !values.link) {
       // Show error toast
@@ -12,13 +18,16 @@ const LinkForm = ({ onLinkSave }) => {
       return;
     }
 
-    // Notify parent component to save link
-    onLinkSave(values);
+    // Dispatch action to save link data to the Redux store
+    dispatch(updateLinkData({platform: values.platform, link: values.link}));
 
     // Show success toast notification
     toast.success('Link saved successfully!');
     
   };
+
+  // Filter out selected platforms from other links
+  const filteredPlatforms = linkData.map((item) => item.platform);
 
   return (
     <div>
@@ -35,9 +44,9 @@ const LinkForm = ({ onLinkSave }) => {
               <option value="" disabled>
                 Select Platform
               </option>
-              <option value="Github">Github</option>
-              <option value="Linkedin">Linkedin</option>
-              <option value="Leetcode">Leetcode</option>
+              <option value="Github" disabled={filteredPlatforms.includes('Github')}>Github</option>
+              <option value="Linkedin" disabled={filteredPlatforms.includes('Linkedin')}>Linkedin</option>
+              <option value="Leetcode" disabled={filteredPlatforms.includes('Leetcode')}>Leetcode</option>
               {/* Add more options as needed */}
             </Field>
             <ErrorMessage name="platform" component="div" className="text-red-500 text-sm" />

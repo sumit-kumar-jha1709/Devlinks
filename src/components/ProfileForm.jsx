@@ -59,7 +59,7 @@ const ProfileForm = () => {
          }
       }}
     >
-      <Form>
+      <Form >
         <div id="profilePhoto" className='bg-[#F0F0F0] flex justify-center items-center p-5 mx-4 gap-3 mt-2 mb-2 rounded-xl'>
           {/* Image preview div */}
           <h3 className="text-lg text-gray-600 basis-1/3">Profile picture</h3>

@@ -12,8 +12,8 @@ const MobileView = () => {
   return(
     <>
     <Toaster/>
-        <div id="container" className='p-2 m-3 flex gap-2 h-screen mb-8'>
-          <div id="mobileWrapper" className='basis-2/5 border-2  rounded-xl bg-white p-2 m-2 flex justify-center items-center  h-[45rem]'>
+        <div id="container" className='p-2 m-3 flex flex-col-reverse sm:flex-row  gap-2 h-screen mb-8'>
+          <div id="mobileWrapper" className=' basis-full sm:basis-2/5 border-2  rounded-xl bg-white p-2 m-2 flex justify-center items-center  h-[45rem]'>
             <div id="profilePreview" className='flex justify-center items-center h-full w-2/3'>
               <img src={phoneOutline} className='h-[80%] w-[23%] absolute' alt='Phone Outline'/>
               <div className="absolute w-[29%] top-60 left-27 text-black">
@@ -29,7 +29,7 @@ const MobileView = () => {
               </div>
             </div>
           </div>
-          <div id="profileDetailsWrapper" className='basis-3/5 border-2 rounded-xl bg-white m-2  h-[45rem]'>
+          <div id="profileDetailsWrapper" className='basis-full sm:basis-3/5 border-2 rounded-xl bg-white m-2  h-[45rem]'>
             <div id="headingDetails" className='h-30 w-full pt-5 pl-5 pb-2 flex flex-col gap-3'>
               <h1 className='font-bold text-3xl text-gray-800'> Profile Details </h1>
               <p className=' text-base text-gray-600'>Add your details to create a personal touch to your profile.</p>

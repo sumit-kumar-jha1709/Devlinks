@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <>
+    
     <div id="navWrapper" className='bg-white flex justify-between w-11/12 p-2 rounded-md px-5'>
           <button id="backToEditorButton" 
           className='p-3 border-2 rounded-md border-purply text-base text-purply w-40
@@ -16,8 +16,8 @@ const Navbar = () => {
           '>
                 Share Link
           </button>
-        </div>
-    </>
+    </div>
+    
   )
 }
 
